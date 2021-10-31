@@ -1,6 +1,6 @@
 from app import app
 import urllib.request,json
-from .models import Source,Article
+from .models import source
 
 # Getting api key
 apiKey = app.config['API_KEY']
@@ -43,7 +43,7 @@ def process_results(source_list):
         category = source_item.get("category")
 
 
-        source_object=Source(id,name,description,url,category)
+        source_object=source.Source(id,name,description,url,category)
         source_results.append(source_object)
 
        
