@@ -1,6 +1,7 @@
 from app import app
 import urllib.request,json
 from .models import source
+from .models import articles
 
 # Getting api key
 apiKey = app.config['API_KEY']
@@ -75,7 +76,7 @@ def process_articles_results(news):
         publishedAt = article.get ('publishedAt')
 
         if url:
-            article_objects = article.Article(author,title,description,url,urlToImage,publishedAt)
+            article_objects = articles.Article(author,title,description,url,urlToImage,publishedAt)
             article_source_results.append(article_objects)
 
     return article_source_results
